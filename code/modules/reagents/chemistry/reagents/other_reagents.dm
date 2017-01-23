@@ -1089,6 +1089,48 @@
 	if(T)
 		T.color = pick(random_color_list)
 	..()
+	
+/datum/reagent/colorful_reagent/red
+	name = "Red Reagent"
+	id = "red_reagent"
+	description = "A red solution."
+	color = "#FF0000"
+	list/random_color_list = list("#FF0000")
+	
+/datum/reagent/colorful_reagent/orange
+	name = "Orange Reagent"
+	id = "orange_reagent"
+	description = "An orange solution."
+	color = "#FF9300"
+	list/random_color_list = list("#FF9300")
+	
+/datum/reagent/colorful_reagent/yellow
+	name = "Yellow Reagent"
+	id = "yellow_reagent"
+	description = "A yellow solution."
+	color = "#FFF200"
+	list/random_color_list = list("#FFF200")
+	
+/datum/reagent/colorful_reagent/green
+	name = "Green Reagent"
+	id = "green_reagent"
+	description = "A green solution."
+	color = "#A8E61D"
+	list/random_color_list = list("#A8E61D")
+	
+/datum/reagent/colorful_reagent/blue
+	name = "Blue Reagent"
+	id = "blue_reagent"
+	description = "A blue solution."
+	color = "#00B7EF"
+	list/random_color_list = list("#00B7EF")
+	
+/datum/reagent/colorful_reagent/purple
+	name = "Purple Reagent"
+	id = "purple_reagent"
+	description = "A purple solution."
+	color = "#DA00FF"
+	list/random_color_list = list("#DA00FF")
 
 /datum/reagent/hair_dye
 	name = "Quantum Hair Dye"
