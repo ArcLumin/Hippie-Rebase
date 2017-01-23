@@ -63,7 +63,8 @@
 	health = 250
 	burn_state = LAVA_PROOF
 	lights_power = 7
-	damage_absorption = list("brute"=0.6,"fire"=0.5,"bullet"=0.7,"laser"=0.7,"energy"=1,"bomb"=0.4)
+	deflect_chance = 45
+	damage_absorption = list("brute"=0.4,"fire"=0.1,"bullet"=0.4,"laser"=0.2"energy"=0.5,"bomb"=0.1)
 	max_equip = 5 // More armor, less tools
 	wreckage = /obj/structure/mecha_wreckage/ripley/firefighter
 
