@@ -243,7 +243,7 @@
 	desc = "An exosuit module that allows exosuits to teleport to any position in view."
 	id = "mech_teleporter"
 	build_type = MECHFAB
-	req_tech = list("bluespace" = 8, "magnets" = 5)
+	req_tech = list("bluespace" = 7, "magnets" = 5)
 	build_path = /obj/item/mecha_parts/mecha_equipment/teleporter
 	materials = list(MAT_METAL=10000,MAT_DIAMOND=10000)
 	construction_time = 100
@@ -256,7 +256,7 @@
 	build_type = MECHFAB
 	req_tech = list("materials" = 5, "bluespace" = 3, "magnets" = 4, "powerstorage"=4, "engineering" = 5)
 	build_path = /obj/item/mecha_parts/mecha_equipment/rcd
-	materials = list(MAT_METAL=30000,MAT_GOLD=20000,MAT_PLASMA=25000,MAT_SILVER=20000)
+	materials = list(MAT_METAL=30000,MAT_GOLD=2000,MAT_PLASMA=2500,MAT_SILVER=2000)
 	construction_time = 1200
 	category = list("Exosuit Equipment")
 
@@ -289,7 +289,7 @@
 	build_type = MECHFAB
 	req_tech = list("magnets" = 4, "powerstorage" = 5, "engineering" = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay
-	materials = list(MAT_METAL=10000,MAT_GLASS=2000,MAT_GOLD=2000,MAT_SILVER=3000)
+	materials = list(MAT_METAL=10000,MAT_GLASS=2000,MAT_GOLD=2000,MAT_SILVER=2000)
 	construction_time = 100
 	category = list("Exosuit Equipment")
 
@@ -386,7 +386,6 @@
 	desc = "Equipment for medical exosuits. A chem synthesizer with syringe gun. Reagents inside are held in stasis, so no reactions will occur."
 	id = "mech_syringe_gun"
 	build_type = MECHFAB
-	req_tech = list("magnets" = 4,"biotech" = 4, "combat" = 3, "materials" = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun
 	materials = list(MAT_METAL=3000,MAT_GLASS=2000)
 	construction_time = 200
