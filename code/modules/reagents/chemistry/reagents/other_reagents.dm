@@ -1132,6 +1132,25 @@
 	color = "#DA00FF"
 	list/random_color_list = list("#DA00FF")
 
+/datum/reagent/translucent_reagent
+	name = "Translucent Reagent"
+	id = "translucent_reagent"
+	description = "A near inivisble solution."
+	reagent_state = LIQUID
+	color = "#60AAAAAA"
+	
+/datum/reagent/colorful_reagent/on_mob_life(mob/living/M)
+	if(M && isliving(M))
+		M.color = "#60AAAAAA"
+	..()
+	return
+
+/datum/reagent/colorful_reagent/reaction_mob(mob/living/M, reac_volume)
+	if(M && isliving(M))
+		M.color = "#60AAAAAA"
+	..()
+
+
 /datum/reagent/hair_dye
 	name = "Quantum Hair Dye"
 	id = "hair_dye"
