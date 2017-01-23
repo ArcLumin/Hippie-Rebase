@@ -297,6 +297,27 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/bag/ore/holding
 	category = list("Bluespace Designs")
 
+/datum/design/bluefloor
+	name = "Bluespace Floor Tile"
+	desc = "A flooring that makes you feel like you're teleporting!"
+	id = "bluefloor"
+	req_tech = list("bluespace" = 5, "materials" = 4)
+	build_type = PROTOLATHE
+	materials = list(MAT_URANIUM = 10, MAT_DIAMOND = 10)
+	reliability = 100
+	build_path = /obj/item/stack/tile/bluespace
+	category = list("Bluespace Designs")
+	
+/datum/design/sepiafloor
+	name = "Sepia Floor Tile"
+	desc = "A flooring that makes you feel like time is moving slower..."
+	id = "sepiafloor"
+	req_tech = list("bluespace" = 5, "materials" = 4)
+	build_type = PROTOLATHE
+	materials = list(MAT_GOLD = 10, MAT_SILVER = 10)
+	reliability = 100
+	build_path = /obj/item/stack/tile/sepia
+	category = list("Bluespace Designs")
 
 /////////////////////////////////////////
 /////////////////HUDs////////////////////
