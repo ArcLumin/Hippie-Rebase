@@ -163,9 +163,9 @@
 	name = "plasma blast"
 	icon_state = "plasmacutter"
 	damage_type = BRUTE
-	damage = 5
-	range = 3.5 //works as 4, but doubles to 7
-	dismemberment = 20
+	damage = 10
+	range = 5.5 //works as 6, but doubles to 11
+	dismemberment = 30
 
 /obj/item/projectile/plasma/New()
 	var/turf/proj_turf = get_turf(src)
@@ -190,12 +190,12 @@
 			return -1
 
 /obj/item/projectile/plasma/adv
-	damage = 7
-	range = 5
+	damage = 15
+	range = 6.5
 
 /obj/item/projectile/plasma/adv/mech
-	damage = 10
-	range = 6
+	damage = 20
+	range = 7.5
 
 
 /obj/item/projectile/gravityrepulse
