@@ -25,13 +25,12 @@
 	var/recentlyExperimented = 0
 	var/mob/trackedIan
 	var/mob/trackedRuntime
-	var/badThingCoeff = 0
-	var/resetTime = 15
+	var/badThingCoeff = 20
+	var/resetTime = 10
 	var/cloneMode = FALSE
 	var/cloneCount = 0
 	var/list/item_reactions = list()
 	var/list/valid_items = list() //valid items for special reactions like transforming
-	var/list/critical_items = list() //items that can cause critical reactions
 
 /obj/machinery/r_n_d/experimentor/proc/ConvertReqString2List(list/source_list)
 	var/list/temp_list = params2list(source_list)
@@ -72,12 +71,6 @@
 			if(initial(tempCheck.icon_state) != null) //check it's an actual usable item, in a hacky way
 				valid_items += rand(1,max(2,35-probWeight))
 				valid_items += I
-
-		if(ispath(I,/obj/item/weapon/rcd) || ispath(I,/obj/item/weapon/grenade) || ispath(I,/obj/item/device/aicard) || ispath(I,/obj/item/weapon/storage/backpack/holding) || ispath(I,/obj/item/slime_extract) || ispath(I,/obj/item/device/onetankbomb) || ispath(I,/obj/item/device/transfer_valve))
-			var/obj/item/tempCheck = I
-			if(initial(tempCheck.icon_state) != null)
-				critical_items += I
-
 
 /obj/machinery/r_n_d/experimentor/New()
 	..()
@@ -231,7 +224,7 @@
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	if(exp == SCANTYPE_POKE)
 		visible_message("[src] prods at [exp_on] with mechanical arms.")
-		if(prob(EFFECT_PROB_LOW) && criticalReaction)
+		if(prob(EFFECT_PROB_LOW+badThingCoeff))
 			visible_message("[exp_on] is gripped in just the right way, enhancing its focus.")
 			badThingCoeff++
 		else if(prob(EFFECT_PROB_VERYLOW-badThingCoeff))
@@ -255,7 +248,7 @@
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	if(exp == SCANTYPE_IRRADIATE)
 		visible_message("<span class='danger'>[src] reflects radioactive rays at [exp_on]!</span>")
-		if(prob(EFFECT_PROB_LOW) && criticalReaction)
+		if(prob(EFFECT_PROB_LOW+badThingCoeff))
 			visible_message("[exp_on] has activated an unknown subroutine!")
 			cloneMode = TRUE
 			cloneCount = badThingCoeff
@@ -286,7 +279,7 @@
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	if(exp == SCANTYPE_GAS)
 		visible_message("<span class='warning'>[src] fills its chamber with gas, [exp_on] included.</span>")
-		if(prob(EFFECT_PROB_LOW) && criticalReaction)
+		if(prob(EFFECT_PROB_LOW+badThingCoeff))
 			visible_message("[exp_on] achieves the perfect mix!")
 			new /obj/item/stack/sheet/mineral/plasma(get_turf(pick(oview(1,src))))
 		else if(prob(EFFECT_PROB_VERYLOW-badThingCoeff))
@@ -327,7 +320,7 @@
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	if(exp == SCANTYPE_HEAT)
 		visible_message("[src] raises [exp_on]'s temperature.")
-		if(prob(EFFECT_PROB_LOW) && criticalReaction)
+		if(prob(EFFECT_PROB_LOW+badThingCoeff))
 			visible_message("<span class='warning'>[src]'s emergency coolant system gives off a small ding!</span>")
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 			var/obj/item/weapon/reagent_containers/food/drinks/coffee/C = new /obj/item/weapon/reagent_containers/food/drinks/coffee(get_turf(pick(oview(1,src))))
@@ -379,7 +372,7 @@
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	if(exp == SCANTYPE_COLD)
 		visible_message("[src] lowers [exp_on]'s temperature.")
-		if(prob(EFFECT_PROB_LOW) && criticalReaction)
+		if(prob(EFFECT_PROB_LOW+badThingCoeff))
 			visible_message("<span class='warning'>[src]'s emergency coolant system gives off a small ding!</span>")
 			var/obj/item/weapon/reagent_containers/food/drinks/coffee/C = new /obj/item/weapon/reagent_containers/food/drinks/coffee(get_turf(pick(oview(1,src))))
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1) //Ding! Your death coffee is ready!
@@ -427,7 +420,7 @@
 		if(linked_console.linked_lathe)
 			for(var/material in exp_on.materials)
 				linked_console.linked_lathe.materials.insert_amount( min((linked_console.linked_lathe.materials.max_amount - linked_console.linked_lathe.materials.total_amount), (exp_on.materials[material])), material)
-		if(prob(EFFECT_PROB_LOW) && criticalReaction)
+		if(prob(EFFECT_PROB_LOW+badThingCoeff))
 			visible_message("<span class='warning'>[src]'s crushing mechanism slowly and smoothly descends, flattening the [exp_on]!</span>")
 			new /obj/item/stack/sheet/plasteel(get_turf(pick(oview(1,src))))
 		else if(prob(EFFECT_PROB_VERYLOW-badThingCoeff))
@@ -500,7 +493,7 @@
 			ejectItem(TRUE)
 		if(globalMalf > 76)
 			visible_message("<span class='warning'>[src] begins to smoke and hiss, shaking violently!</span>")
-			use_power(500000)
+			use_power(10000)
 			investigate_log("Experimentor has drained power from its APC", "experimentor")
 
 	spawn(resetTime)
@@ -596,11 +589,9 @@
 
 
 /obj/item/weapon/relic/proc/reveal()
-	if(revealed) //Re-rolling your relics seems a bit overpowered, yes?
-		return
 	revealed = TRUE
 	name = realName
-	cooldownMax = rand(60,300)
+	cooldownMax = rand(60,100)
 	realProc = pick("teleport","explode","rapidDupe","petSpray","flash","clean","corgicannon")
 	origin_tech = pick("engineering=[rand(2,5)]","magnets=[rand(2,5)]","plasmatech=[rand(2,5)]","programming=[rand(2,5)]","powerstorage=[rand(2,5)]")
 
@@ -654,9 +645,8 @@
 		var/mobType = pick(valid_animals)
 		new mobType(get_turf(src))
 	warn_admins(user, "Mass Mob Spawn")
-	if(prob(60))
-		user << "<span class='warning'>[src] falls apart!</span>"
-		qdel(src)
+	if(prob(80))
+		user << "<span class='warning'>[src] doesn't respond!</span>"
 
 /obj/item/weapon/relic/proc/rapidDupe(mob/user)
 	audible_message("[src] emits a loud pop!")
@@ -686,7 +676,7 @@
 			visible_message("<span class='notice'>The [src]'s top opens, releasing a powerful blast!</span>")
 			explosion(user.loc, -1, rand(1,5), rand(1,5), rand(1,5), rand(1,5), flame_range = 2)
 			warn_admins(user, "Explosion")
-			qdel(src) //Comment this line to produce a light grenade (the bomb that keeps on exploding when used)!!
+//			qdel(src) //Comment this line to produce a light grenade (the bomb that keeps on exploding when used)!!
 
 /obj/item/weapon/relic/proc/teleport(mob/user)
 	user << "<span class='notice'>The [src] begins to vibrate!</span>"
