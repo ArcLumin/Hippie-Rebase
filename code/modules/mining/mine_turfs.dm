@@ -263,7 +263,7 @@
 
 /turf/open/floor/plating/asteroid/airless/cave
 	var/length = 100
-	var/mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goldgrub = 1, /mob/living/simple_animal/hostile/asteroid/goliath = 5, /mob/living/simple_animal/hostile/asteroid/basilisk = 4, /mob/living/simple_animal/hostile/asteroid/hivelord = 3)
+	var/mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goldgrub = 1, /mob/living/simple_animal/hostile/asteroid/goliath = 5, /mob/living/simple_animal/hostile/asteroid/basilisk = 4, /mob/living/simple_animal/hostile/asteroid/hivelord = 3, /mob/living/simple_animal/hostile/asteroid/fugu = 2)
 	var/sanity = 1
 	var/forward_cave_dir = 1
 	var/backward_cave_dir = 2
