@@ -95,6 +95,13 @@
 /datum/chemical_reaction/reagent_explosion/blackpowder_explosion/on_reaction(datum/reagents/holder, created_volume)
 	sleep(rand(50,100))
 	..()
+	
+/datum/chemical_reaction/reagent_explosion/fartium
+	name = "Fartium ass blast"
+	id = "fart_blast"
+	required_reagents = list("fartium" = 1)
+	required_temp = 474
+	strengthdiv = 3
 
 /datum/chemical_reaction/thermite
 	name = "Thermite"
