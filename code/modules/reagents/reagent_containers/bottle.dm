@@ -336,3 +336,9 @@
 	desc = "A small bottle containing Bio Virus Antidote Kit."
 	icon_state = "bottle5"
 	list_reagents = list("atropine" = 5, "epinephrine" = 5, "salbutamol" = 10, "spaceacillin" = 10)
+
+/obj/item/weapon/reagent_containers/glass/bottle/wasting
+	name = "wasting toxin bottle"
+	desc = "A small bottle. Contains wasting toxin."
+	icon_state = "bottle16"
+	list_reagents = list("wasting_toxin" = 30)
