@@ -60,11 +60,11 @@
 
 /turf/closed/mineral/random
 	var/mineralSpawnChanceList = list(
-		/turf/closed/mineral/uranium = 5, /turf/closed/mineral/diamond = 1, /turf/closed/mineral/gold = 10,
+		/turf/closed/mineral/uranium = 5, /turf/closed/mineral/diamond = 1, /turf/closed/mineral/gold = 10, /turf/closed/mineral/bananium = 3,
 		/turf/closed/mineral/silver = 12, /turf/closed/mineral/plasma = 20, /turf/closed/mineral/iron = 40, /turf/closed/mineral/titanium = 11,
 		/turf/closed/mineral/gibtonite = 4, /turf/open/floor/plating/asteroid/airless/cave = 2, /turf/closed/mineral/bscrystal = 1)
 		//Currently, Adamantine won't spawn as it has no uses. -Durandan
-	var/mineralChance = 13
+	var/mineralChance = 20
 
 /turf/closed/mineral/random/New()
 	..()
@@ -84,10 +84,10 @@
 
 /turf/closed/mineral/random/high_chance
 	icon_state = "rock_highchance"
-	mineralChance = 25
+	mineralChance = 35
 	mineralSpawnChanceList = list(
 		/turf/closed/mineral/uranium = 35, /turf/closed/mineral/diamond = 30, /turf/closed/mineral/gold = 45, /turf/closed/mineral/titanium = 45,
-		/turf/closed/mineral/silver = 50, /turf/closed/mineral/plasma = 50, /turf/closed/mineral/bscrystal = 20)
+		/turf/closed/mineral/silver = 50, /turf/closed/mineral/plasma = 50, /turf/closed/mineral/bananium = 30, /turf/closed/mineral/bscrystal = 20)
 
 /turf/closed/mineral/random/high_chance/New()
 	icon_state = "rock"
@@ -95,10 +95,10 @@
 
 /turf/closed/mineral/random/low_chance
 	icon_state = "rock_lowchance"
-	mineralChance = 6
+	mineralChance = 10
 	mineralSpawnChanceList = list(
 		/turf/closed/mineral/uranium = 2, /turf/closed/mineral/diamond = 1, /turf/closed/mineral/gold = 4, /turf/closed/mineral/titanium = 4,
-		/turf/closed/mineral/silver = 6, /turf/closed/mineral/plasma = 15, /turf/closed/mineral/iron = 40,
+		/turf/closed/mineral/silver = 6, /turf/closed/mineral/plasma = 15, /turf/closed/mineral/iron = 40, /turf/closed/mineral/bananium = 3,
 		/turf/closed/mineral/gibtonite = 2, /turf/closed/mineral/bscrystal = 1)
 
 /turf/closed/mineral/random/low_chance/New()
@@ -119,7 +119,7 @@
 
 /turf/closed/mineral/diamond
 	mineralType = /obj/item/weapon/ore/diamond
-	spreadChance = 0
+	spreadChance = 3
 	spread = 1
 	scan_state = "rock_Diamond"
 
@@ -150,21 +150,21 @@
 /turf/closed/mineral/clown
 	mineralType = /obj/item/weapon/ore/bananium
 	mineralAmt = 3
-	spreadChance = 0
+	spreadChance = 5
 	spread = 0
 	scan_state = "rock_Clown"
 
 /turf/closed/mineral/bscrystal
 	mineralType = /obj/item/weapon/ore/bluespace_crystal
 	mineralAmt = 1
-	spreadChance = 0
+	spreadChance = 2
 	spread = 0
 	scan_state = "rock_BScrystal"
 
 ////////////////////////////////Gibtonite
 /turf/closed/mineral/gibtonite
 	mineralAmt = 1
-	spreadChance = 0
+	spreadChance = 1
 	spread = 0
 	scan_state = "rock_Gibtonite"
 	var/det_time = 8 //Countdown till explosion, but also rewards the player for how close you were to detonation when you defuse it
