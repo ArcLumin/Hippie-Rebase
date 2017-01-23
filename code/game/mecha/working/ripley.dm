@@ -2,13 +2,14 @@
 	desc = "Autonomous Power Loader Unit. This newer model is refitted with powerful armour against the dangers of the EVA mining process."
 	name = "\improper APLU \"Ripley\""
 	icon_state = "ripley"
-	step_in = 5
+	step_in = 3
 	max_temperature = 20000
-	health = 200
+	health = 250
 	lights_power = 7
 	deflect_chance = 15
 	damage_absorption = list("brute"=0.6,"fire"=1,"bullet"=0.8,"laser"=0.9,"energy"=1,"bomb"=0.6)
 	max_equip = 6
+	step_energy_drain = 1
 	wreckage = /obj/structure/mecha_wreckage/ripley
 	var/list/cargo = new
 	var/cargo_capacity = 15
@@ -60,7 +61,7 @@
 	name = "\improper APLU \"Firefighter\""
 	icon_state = "firefighter"
 	max_temperature = 65000
-	health = 250
+	health = 350
 	burn_state = LAVA_PROOF
 	lights_power = 7
 	deflect_chance = 45
@@ -151,11 +152,11 @@
 	var/pressure = environment.return_pressure()
 
 	if(pressure < 40)
-		step_in = 3
+		step_in = 1
 		for(var/obj/item/mecha_parts/mecha_equipment/drill/drill in equipment)
-			drill.equip_cooldown = initial(drill.equip_cooldown)/2
+			drill.equip_cooldown = initial(drill.equip_cooldown)/4
 	else
-		step_in = 5
+		step_in = 3
 		for(var/obj/item/mecha_parts/mecha_equipment/drill/drill in equipment)
 			drill.equip_cooldown = initial(drill.equip_cooldown)
 
