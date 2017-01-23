@@ -56,16 +56,14 @@
 
 /obj/item/organ/cyberimp/chest/reviver/on_life()
 	if(reviving)
-		if(owner.stat == UNCONSCIOUS)
-			addtimer(src, "heal", 30)
+		if(owner.health < 10)
+			addtimer(src, "heal", 10)
 		else
 			cooldown = revive_cost + world.time
 			reviving = FALSE
 		return
 
 	if(cooldown > world.time)
-		return
-	if(owner.stat != UNCONSCIOUS)
 		return
 	if(owner.suiciding)
 		return
@@ -75,17 +73,17 @@
 
 /obj/item/organ/cyberimp/chest/reviver/proc/heal()
 	if(prob(90) && owner.getOxyLoss())
-		owner.adjustOxyLoss(-3)
-		revive_cost += 5
-	if(prob(75) && owner.getBruteLoss())
-		owner.adjustBruteLoss(-1)
-		revive_cost += 20
-	if(prob(75) && owner.getFireLoss())
-		owner.adjustFireLoss(-1)
-		revive_cost += 20
-	if(prob(40) && owner.getToxLoss())
-		owner.adjustToxLoss(-1)
-		revive_cost += 50
+		owner.adjustOxyLoss(-10)
+		revive_cost += 1
+	if(prob(95) && owner.getBruteLoss())
+		owner.adjustBruteLoss(-5)
+		revive_cost += 2
+	if(prob(95) && owner.getFireLoss())
+		owner.adjustFireLoss(-5)
+		revive_cost += 2
+	if(prob(50) && owner.getToxLoss())
+		owner.adjustToxLoss(-3)
+		revive_cost += 3
 
 /obj/item/organ/cyberimp/chest/reviver/emp_act(severity)
 	if(!owner)
