@@ -367,7 +367,7 @@
 			return
 		A.loc = FD
 		FD.pen = A
-		FD.damage = 5
+		FD.damage += 10
 		FD.nodamage = 0
 		user << "<span class='notice'>You insert [A] into [src].</span>"
 	return
