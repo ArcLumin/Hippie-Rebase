@@ -1139,13 +1139,13 @@
 	reagent_state = LIQUID
 	color = "#60AAAAAA"
 	
-/datum/reagent/colorful_reagent/on_mob_life(mob/living/M)
+/datum/reagent/translucent_reagent/on_mob_life(mob/living/M)
 	if(M && isliving(M))
 		M.color = "#60AAAAAA"
 	..()
 	return
 
-/datum/reagent/colorful_reagent/reaction_mob(mob/living/M, reac_volume)
+/datum/reagent/translucent_reagent/reaction_mob(mob/living/M, reac_volume)
 	if(M && isliving(M))
 		M.color = "#60AAAAAA"
 	..()
