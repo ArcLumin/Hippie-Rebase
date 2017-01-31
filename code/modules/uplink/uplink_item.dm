@@ -337,7 +337,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	name = "Feral Cat Delivery Grenade"
 	desc = "The feral cat delivery grenade contains 8 dehydrated feral cats in a similar manner to dehydrated monkeys, which, upon detonation, will be rehydrated by a small reservoir of water contained within the grenade. These cats will then attack anything in sight."
 	item = /obj/item/weapon/grenade/spawnergrenade/feral_cats
-	cost = 4
+	cost = 5
 
 /datum/uplink_item/dangerous/foamsmg
 	name = "Toy Submachine Gun"
@@ -359,7 +359,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	desc = "A unique grenade that deploys a swarm of viscerators upon activation, which will chase down and shred \
 			any non-operatives in the area."
 	item = /obj/item/weapon/grenade/spawnergrenade/manhacks
-	cost = 4
+	cost = 6
 	surplus = 35
 	include_modes = list(/datum/game_mode/nuclear)
 
@@ -388,7 +388,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 			autoinjectors for rapid application on up to two targets each, a syringe, and a bottle containing \
 			the BVAK solution."
 	item = /obj/item/weapon/storage/box/syndie_kit/tuberculosisgrenade
-	cost = 8
+	cost = 12
 	surplus = 35
 	include_modes = list(/datum/game_mode/nuclear)
 
@@ -480,7 +480,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	name = ".45 Ammo Duffelbag"
 	desc = "A duffelbag filled with enough .45 ammo to supply an entire team, at a discounted price."
 	item = /obj/item/weapon/storage/backpack/dufflebag/syndie/ammo/smg
-	cost = 16
+	cost = 20
 	include_modes = list(/datum/game_mode/nuclear)
 
 /datum/uplink_item/ammo/carbine
@@ -488,7 +488,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	desc = "An additional 30-round 5.56 magazine sutable for use with the C-90gl carbine. \
 			These bullets deal heavy enough damage to send an unarmoured target into critical condition with a single burst."
 	item = /obj/item/ammo_box/magazine/m556
-	cost = 2
+	cost = 4
 	include_modes = list(/datum/game_mode/nuclear)
 	
 /datum/uplink_item/ammo/grenades
@@ -496,14 +496,14 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	desc = "A box containing four 40mm grenades for use with the C-90gl carbine. \
 			These grenades are absolutely devastating but the C-90 can only hold one at a time making them less than ideal primary weapons."
 	item = /obj/item/ammo_box/a40mm
-	cost = 3
+	cost = 5
 	include_modes = list(/datum/game_mode/nuclear)	
 
 /datum/uplink_item/ammo/machinegun
 	name = "7.62 Box Magazine"
 	desc = "A 50-round magazine of 7.62 ammunition for use with the L6 SAW. \
 			Even the most well-armoured targets will be unable to stand after taking a burst of 7.62 bullets."
-	cost = 4
+	cost = 5
 	item = /obj/item/ammo_box/magazine/m762
 	include_modes = list(/datum/game_mode/nuclear)
 
@@ -520,27 +520,27 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	name = ".50 Soporific Magazine"
 	desc = "A 5-round magazine of soporific ammo designed for use with .50 sniper rifles. Put your enemies to sleep today!"
 	item = /obj/item/ammo_box/magazine/sniper_rounds/soporific
-	cost = 2
+	cost = 3
 
 /datum/uplink_item/ammo/sniper/he
 	name = ".50 High-Explosive Magazine"
 	desc = "A 5-round magazine of high-exposives ammo designed for use with .50 sniper rifles; causes heavy collateral \
 			damage around the target."
 	item = /obj/item/ammo_box/magazine/sniper_rounds/he
-	cost = 4
+	cost = 6
 
 /datum/uplink_item/ammo/sniper/penetrator
 	name = ".50 Penetrator Magazine"
 	desc = "A 5-round magazine of penetrator ammo designed for use with .50 sniper rifles. \
 			Can pierce walls and multiple enemies."
 	item = /obj/item/ammo_box/magazine/sniper_rounds/penetrator
-	cost = 4
+	cost = 5
 
 /datum/uplink_item/ammo/toydarts
 	name = "Box of Riot Darts"
 	desc = "A box of 40 Donksoft foam riot darts, for reloading any compatible foam dart gun. Don't forget to share!"
 	item = /obj/item/ammo_box/foambox/riot
-	cost = 1
+	cost = 2
 
 /datum/uplink_item/ammo/bioterror
 	name = "Box of Bioterror Syringes"
@@ -567,7 +567,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	name = "Syndicate Cyborg"
 	desc = "A cyborg designed and programmed for systematic extermination of non-Syndicate personnel."
 	item = /obj/item/weapon/antag_spawner/nuke_ops/borg_tele
-	cost = 60
+	cost = 50
 
 /datum/uplink_item/support/gygax
 	name = "Gygax Exosuit"
@@ -593,7 +593,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	desc = "This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, \
 			deflecting all ranged weapon fire, but you also refuse to use dishonorable ranged weaponry."
 	item = /obj/item/weapon/sleeping_carp_scroll
-	cost = 12
+	cost = 17
 	exclude_modes = list(/datum/game_mode/nuclear, /datum/game_mode/gang)
 
 /datum/uplink_item/stealthy_weapons/throwingweapons
@@ -665,7 +665,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	desc = "Fitted for use on any small caliber weapon with a threaded barrel, this suppressor will silence the \
 			shots of the weapon for increased stealth and superior ambushing capability."
 	item = /obj/item/weapon/suppressor
-	cost = 1
+	cost = 2
 	surplus = 10
 
 /datum/uplink_item/stealthy_weapons/pizza_bomb
@@ -673,7 +673,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	desc = "A pizza box with a bomb cunningly attached to the lid. The timer needs to be set by opening the box; afterwards, \
 			opening the box again will trigger the detonation after the timer has elapsed. Comes with free pizza, for you or your target!"
 	item = /obj/item/pizzabox/bomb
-	cost = 4
+	cost = 3
 	surplus = 8
 
 /datum/uplink_item/stealthy_weapons/dehy_carp
@@ -687,7 +687,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	name = "Slipocalypse Clusterbang"
 	desc = "A traditional clusterbang grenade with a payload consisting entirely of Syndicate soap. Useful in any scenario!"
 	item = /obj/item/weapon/grenade/clusterbuster/soap
-	cost = 4
+	cost = 6
 
 /datum/uplink_item/stealthy_weapons/door_charge
 	name = "Explosive Airlock Charge"
