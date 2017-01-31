@@ -114,7 +114,7 @@ var/list/uplink_items = list() // Global list so we only initialize this once.
 	name = "Laser Eyes DNA Injector"
 	desc = "An injector containing a syndicate modified retrovirus strain that mutates the user's eyes allowing them to project laser bolts at will."
 	item = /obj/item/weapon/storage/box/syndie_kit/lasereye
-	cost = 4
+	cost = 8
 	jobs = list("Geneticist")
 
 //SERVICE DIVISION
