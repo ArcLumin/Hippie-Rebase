@@ -261,7 +261,6 @@
 	new /obj/item/weapon/reagent_containers/glass/bottle/coniine(src)
 	new /obj/item/weapon/reagent_containers/glass/bottle/curare(src)
 	new /obj/item/weapon/reagent_containers/glass/bottle/amanitin(src)
-	new /obj/item/weapon/reagent_containers/glass/bottle/wasting(src)
 	new /obj/item/weapon/reagent_containers/food/drinks/beer/sleepy(src)
 	new /obj/item/weapon/reagent_containers/syringe(src)
 	return
